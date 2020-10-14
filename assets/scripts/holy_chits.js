@@ -20,4 +20,19 @@ class Die {
     toString() {
 	return "d" + this.sides.toString();
     }
+
+    render(templateElement) {
+	var node = templateElement.content.cloneNode(true);
+	node.querySelector(".roll").textContent = this.roll();
+	return node;
+    }
 }
+
+window.addEventListener("DOMContentLoaded", (event) => {
+    const rollElement = document.querySelector("#rolls");
+    const rollTemplate = document.querySelector("#roll-template");
+
+    for (let i = 0; i < 200; i++) {
+	rollElement.appendChild(Die.d20.render(rollTemplate));
+    }
+});
