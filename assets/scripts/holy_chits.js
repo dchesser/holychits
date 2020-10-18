@@ -32,8 +32,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const rollElement = document.querySelector("#rolls");
     const rollTemplate = document.querySelector("#roll-template");
 
+    const U = new URL(document.URL);
+    var p = new URLSearchParams(U.search);
+    var d = new Die(p.has("d") ? p.get("d") : 20);
+
     for (let i = 0; i < 200; i++) {
-	rollElement.appendChild(Die.d20.render(rollTemplate));
+	rollElement.appendChild(d.render(rollTemplate));
     }
 });
 
