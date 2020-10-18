@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Holy Chits!</title>
     <link href="assets/styles/holy_chits.css" rel="stylesheet">
-    <script src="assets/scripts/holy_chits.js" type="text/javascript"></script>
+    <script src="assets/scripts/holy_chits.js" type="text/javascript" defer></script>
   </head>
 
   <body>
@@ -12,6 +12,19 @@
     <template id="roll-template">
       <span class="roll"></span>
     </template>
+
+    <div class="toolbar">
+      <label for="die-selector">Roll:</label>
+      <select id="die-selector" name="die">
+	<option value="4">d4</option>
+	<option value="6">d6</option>
+	<option value="8">d8</option>
+	<option value="10">d10</option>
+	<option value="12">d12</option>
+	<option value="20">d20</option>
+	<option value="100">d%</option>
+      </select>
+    </div>
 
     <div id="rolls">
     </div>

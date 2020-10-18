@@ -36,3 +36,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	rollElement.appendChild(Die.d20.render(rollTemplate));
     }
 });
+
+document.getElementById("die-selector").addEventListener("change", (event) => {
+    const rollElement = document.querySelector("#rolls");
+    const rollTemplate = document.querySelector("#roll-template");
+    let die = new Die(event.target.value);
+
+    Array.from(rollElement.children).forEach(roll => {
+	roll.remove();
+    });
+
+    for (let i = 0; i < 200; i++) {
+	rollElement.appendChild(die.render(rollTemplate));
+    }
+});
