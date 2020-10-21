@@ -57,6 +57,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
     for (let i = 0; i < 200; i++) {
 	rollElement.appendChild(d.render(rollTemplate));
     }
+
+    let statusText = ["Let RNGesus sort them out.",
+		      "May the natural one never cross your path.",
+		      "You have awakened the gazebo.  Roll for initiative."].sample();
+    document.getElementById("status").textContent = statusText;
 });
 
 document.getElementById("die-selector").addEventListener("change", (event) => {
