@@ -64,6 +64,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("status").textContent = statusText;
 });
 
+document.querySelectorAll("[data-status]").forEach(statusable => {
+    statusable.addEventListener("mouseenter", (event) => {
+	document.getElementById("status").textContent = event.target.dataset.status;
+    });
+    statusable.addEventListener("mouseleave", (event) => {
+	document.getElementById("status").textContent = "";
+    });
+});
+
 document.getElementById("die-selector").addEventListener("change", (event) => {
     const rollElement = document.querySelector("#rolls");
     const rollTemplate = document.querySelector("#roll-template");
