@@ -1,5 +1,23 @@
 "use strict";
 
+class RNG {
+    /* Return [0,max).
+     */
+    static between(max) {
+	return Math.floor(Math.random() * max);
+    }
+
+    /* Return [min,max].
+     */
+    static betweenInclusively(min, max) {
+	return RNG.between(max) + min;
+    }
+}
+
+Array.prototype.sample = function() {
+    return this[RNG.between(this.length)];
+};
+
 class Die {
     static d100 = new Die(100);
     static  d20 = new Die(20);
@@ -14,7 +32,7 @@ class Die {
     }
 
     roll() {
-	return Math.ceil(Math.random() * this.sides);
+	return RNG.between(this.sides) + 1;
     }
 
     toString() {
